@@ -4,6 +4,7 @@
             <v-flex class="text-center">
                 Drop Me A Line
             </v-flex>
+            <v-btn icon color="blue-grey" @click="$emit('close')"><v-icon>fas fa-times</v-icon></v-btn>
         </v-card-title>
         <v-card-text>
             <v-text-field
@@ -25,8 +26,8 @@
         </v-card-text>
         <v-card-actions>
             <div class="flex-grow-1"></div>
-            <v-btn text @click="form.reset()">Clear</v-btn>
-            <v-btn color="primary" @click="submit()">Submit</v-btn>
+            <v-btn text color="blue-grey" @click="form.reset()">Clear</v-btn>
+            <v-btn color="blue-grey" dark @click="submit()">Submit</v-btn>
         </v-card-actions>
     </v-card>
 </template>

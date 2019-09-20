@@ -10,7 +10,7 @@
                         RADEMACHER
                     </v-flex>
                     <v-row justify="center" max-width="200">
-                        <icon-buttons @toggleContact="toggleContact"></icon-buttons>
+                        <icon-buttons :show-contact-form="showContactForm" @toggleContact="toggleContact"></icon-buttons>
                     </v-row>
                     <v-expand-transition>
                         <v-row class="pt-5 mt-5" justify="center" v-show="showContactForm">
