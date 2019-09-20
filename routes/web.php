@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::post('/contact', 'ContactController@post');
+Route::post('/download-resume', 'DownloadController@resume');
