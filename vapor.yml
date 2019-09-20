@@ -3,6 +3,7 @@ name: mattrademachercom
 environments:
   production:
     memory: 1024
+    storage: mattrademacher
     domain: mattrademacher.com
     cli-memory: 512
     build:
