@@ -26,8 +26,18 @@
         </v-card-text>
         <v-card-actions>
             <div class="flex-grow-1"></div>
-            <v-btn text color="blue-grey" @click="form.reset()">Clear</v-btn>
-            <v-btn color="blue-grey" dark @click="submit()">Submit</v-btn>
+            <v-btn
+                :disabled="form.pending"
+                text
+                color="blue-grey"
+                @click="form.reset()"
+            >Clear</v-btn>
+            <v-btn
+                :loading="form.pending"
+                color="blue-grey"
+                dark
+                @click="submit()"
+            >Submit</v-btn>
         </v-card-actions>
     </v-card>
 </template>
@@ -38,26 +48,32 @@
             this.originalInputs = {};
             Object.assign(this.originalInputs, inputs);
             this.inputs = inputs;
+            this.pending = false;
         }
         reset() {
             Object.assign(this.inputs, this.originalInputs);
+            this.pending = false;
         }
     }
     export default {
         name: "ContactForm",
         data: () => ({
+
             form: new Form({name: null, email: null, company: null, textarea: null}),
         }),
         methods: {
             submit() {
+
                 this.$recaptcha('contact').then(token => {
+                    this.form.pending = true;
                     const data = {token};
                     Object.assign(data, this.form.inputs);
                     axios.post('/contact', data).then( r => {
                       if (r.data === 'success') {
+                          this.form.reset();
                           this.$emit('close');
                       }
-                    });
+                    }).catch().then(() => this.form.pending = false);
                 })
             },
         }
