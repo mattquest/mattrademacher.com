@@ -16,7 +16,10 @@
                         <v-row class="pt-5 mt-5" justify="center" v-show="showContactForm">
                             <v-spacer></v-spacer>
                             <v-flex cols>
-                                <contact-form @close="showContactForm = !showContactForm"></contact-form>
+                                <contact-form
+                                    @snackBar="msg => showSnackBar(msg)"
+                                    @close="showContactForm = !showContactForm"
+                                ></contact-form>
                             </v-flex>
                             <v-spacer></v-spacer>
                         </v-row>
@@ -24,6 +27,16 @@
                 </v-col>
             </v-row>
         </v-container>
+        <v-snackbar
+            v-model="snackBar.show"
+            color="white"
+            class="blue-grey--text"
+            bottom
+        >
+            <v-flex class="text-center font-weight-bold">
+                {{ snackBar.text }}
+            </v-flex>
+        </v-snackbar>
     </v-app>
 </template>
 
@@ -34,10 +47,18 @@
         components: {IconButtons},
         data: () => ({
             showContactForm: false,
+            snackBar: {
+                show: false,
+                text: null,
+            },
         }),
         methods: {
             toggleContact() {
                 this.showContactForm = !this.showContactForm;
+            },
+            showSnackBar(msg) {
+                this.snackBar.text = msg;
+                this.snackBar.show = true;
             }
         }
     }

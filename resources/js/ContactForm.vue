@@ -58,12 +58,10 @@
     export default {
         name: "ContactForm",
         data: () => ({
-
             form: new Form({name: null, email: null, company: null, textarea: null}),
         }),
         methods: {
             submit() {
-
                 this.$recaptcha('contact').then(token => {
                     this.form.pending = true;
                     const data = {token};
@@ -72,6 +70,7 @@
                       if (r.data === 'success') {
                           this.form.reset();
                           this.$emit('close');
+                          this.$emit('snackBar', 'Thanks! Your message has been sent!');
                       }
                     }).catch().then(() => this.form.pending = false);
                 })
