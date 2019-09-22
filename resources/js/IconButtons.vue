@@ -34,7 +34,6 @@
             </v-col>
             <v-spacer></v-spacer>
             <form id="resumeForm" method="post" action="/download-resume">
-                <input type="hidden" :value="csrf" name="_token">
                 <input type="hidden" :value="recaptchaToken" name="token">
             </form>
         </v-row>
