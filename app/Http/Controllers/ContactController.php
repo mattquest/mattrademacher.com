@@ -24,8 +24,9 @@ class ContactController extends Controller
         if ($recaptcha->success === true) {
             if ($recaptcha->score > .3) {
                 $body =
-                'from: '. request('email') . '\n' .
-                'company: '. request('company') . '\n' .
+                'from: '. request('name') . "\n" .
+                'email: '. request('email') . "\n" .
+                'company: '. request('company') . "\n" .
                 'message: '. request('textarea');
                Mail::raw($body, function($message) {
                    $message
