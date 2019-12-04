@@ -1,25 +1,29 @@
 <template>
-    <v-card>
+    <v-card class="" style="">
         <v-card-title>
             <v-flex class="text-center">
                 Drop Me A Line
             </v-flex>
-            <v-btn icon color="blue-grey" @click="$emit('close')"><v-icon>fas fa-times</v-icon></v-btn>
+            <v-btn icon color="" @click="$emit('close')"><v-icon>fas fa-times</v-icon></v-btn>
         </v-card-title>
         <v-card-text>
             <v-text-field
+                color="black"
                 v-model="form.inputs.name"
                 label="name"
             />
             <v-text-field
+                color="black"
                 v-model="form.inputs.email"
                 label="email"
             />
             <v-text-field
+                color="black"
                 v-model="form.inputs.company"
                 label="company"
             />
             <v-textarea
+                color="black"
                 v-model="form.inputs.textarea"
                 label="what's up?"
             />
@@ -29,12 +33,13 @@
             <v-btn
                 :disabled="form.pending"
                 text
-                color="blue-grey"
+                color="grey darken-2"
                 @click="form.reset()"
             >Clear</v-btn>
             <v-btn
                 :loading="form.pending"
-                color="blue-grey"
+                color="grey darken-2"
+                class="font-weight-bold"
                 dark
                 @click="submit()"
             >Submit</v-btn>

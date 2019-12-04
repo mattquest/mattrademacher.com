@@ -1,8 +1,8 @@
 <template>
     <v-container>
+        <v-flex>
         <v-row class="pt-5">
-            <v-spacer></v-spacer>
-            <v-col cols="3">
+            <v-col cols="4">
                 <v-btn :loading="botCheckPending" dark class="" icon @click="downloadResume">
                     <v-icon class="grey--text text--lighten-3" size="60px">fas fa-file-alt</v-icon>
                 </v-btn>
@@ -11,7 +11,7 @@
                 </v-flex>
             </v-col>
 
-            <v-col cols="3">
+            <v-col cols="4">
                 <v-btn target="_blank" class="" icon href="https://github.com/mattquest">
                     <v-icon color="grey" size="60px">fab fa-github</v-icon>
                 </v-btn>
@@ -19,7 +19,7 @@
                     github
                 </v-flex>
             </v-col>
-            <v-col align="middle" cols="3">
+            <v-col cols="4">
                 <v-btn
                     target="_blank"
                     class=""
@@ -32,18 +32,33 @@
                     stack overflow
                 </v-flex>
             </v-col>
-            <v-spacer></v-spacer>
             <form id="resumeForm" method="post" action="/download-resume">
                 <input type="hidden" :value="recaptchaToken" name="token">
             </form>
         </v-row>
-        <v-row v-show="!showContactForm" class="pt-5">
-            <v-col>
-                <v-btn class="mx-5 px-5" icon @click="toggleContact()">
-                    <v-icon class="blue-grey--text text--lighten-1" size="70px">fas fa-envelope</v-icon>
+        <v-row class="pt-5 mt-5">
+            <v-col class="pl-5 ml-5">
+                <v-btn class="mx-5 px-5" icon @click="toggleWebsites()">
+                    <v-icon class="teal--text accent-4--text" style="" size="60px">
+                        fas fa-project-diagram
+                    </v-icon>
                 </v-btn>
+                <p class="pt-5 white--text">
+                    projects
+                </p>
+            </v-col>
+            <v-col class="pr-5 mr-5">
+                <v-btn class="mx-5 px-5" icon @click="toggleContact()">
+                    <v-icon class="amber--text text--lighten-4" style="" size="60px">
+                        fas fa-envelope
+                    </v-icon>
+                </v-btn>
+                <p class="pt-5 white--text">
+                    contact
+                </p>
             </v-col>
         </v-row>
+        </v-flex>
     </v-container>
 </template>
 
@@ -59,6 +74,9 @@
         methods: {
             toggleContact() {
                 this.$emit('toggleContact');
+            },
+            toggleWebsites() {
+                this.$emit('toggleWebsites');
             },
             downloadResume() {
                 this.botCheckPending = true;

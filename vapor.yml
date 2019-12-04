@@ -4,7 +4,7 @@ environments:
   production:
     memory: 1024
     storage: mattrademacher
-    domain: mattrademacher.com
+    domain: wheelmaker.dev
     cli-memory: 512
     build:
       - 'composer install --no-dev --classmap-authoritative'

@@ -32,7 +32,7 @@ class ContactController extends Controller
                    $message
                        ->subject('personal site inquiry')
                        ->to('mrademacher@gmail.com')
-                       ->from('noreply@mattrademacher.com');
+                       ->from('noreply@wheelmaker.dev');
                });
                return 'success';
             } else {
