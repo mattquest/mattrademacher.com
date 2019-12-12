@@ -7,8 +7,18 @@ environments:
     domain: wheelmaker.dev
     cli-memory: 512
     build:
-      - 'composer install --no-dev --classmap-authoritative'
-      - 'php artisan event:cache'
-      - 'yarn && yarn run prod && rm -rf node_modules'
+      - "composer install --no-dev --classmap-authoritative"
+      - "php artisan event:cache"
+      - "yarn && yarn run prod && rm -rf node_modules"
     deploy:
-#      - 'php artisan migrate --force'
+
+  staging:
+    memory: 1024
+    storage: mattrademacher
+    domain: staging.wheelmaker.dev
+    cli-memory: 512
+    build:
+      - "composer install --no-dev --classmap-authoritative"
+      - "php artisan event:cache"
+      - "yarn && yarn run dev && rm -rf node_modules"
+    deploy:
