@@ -31,7 +31,7 @@ class ContactController extends Controller
                Mail::raw($body, function($message) {
                    $message
                        ->subject('personal site inquiry')
-                       ->to('mrademacher@gmail.com')
+                       ->to('matt.t.rademacher@gmail.com')
                        ->from('noreply@wheelmaker.dev');
                });
                return 'success';
@@ -39,6 +39,6 @@ class ContactController extends Controller
                 return 'fail with score '.$recaptcha->score;
             }
         }
-        return 'fail';
+        var_dump($recaptcha);
     }
 }

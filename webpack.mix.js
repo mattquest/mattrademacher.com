@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix")
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js("resources/js/app.js", "public/js").sass("resources/sass/app.scss", "public/css")
+
+// Get the APP_URL from .env and remove protocol
+let url = process.env.APP_URL.replace(/(^\w+:|^)\/\//, "")
+mix.options({
+  hmrOptions: {
+    host: url,
+    port: 8080 // Can't use 443 here because address already in use
+  }
+})

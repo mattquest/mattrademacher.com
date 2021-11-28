@@ -7,6 +7,7 @@
         <meta name="robots" content="noindex">
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
@@ -23,9 +24,14 @@
           gtag('js', new Date());
           gtag('config', 'UA-154495712-1');
         </script>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
     </head>
     <body>
-        <div id="app">
+        <div id="app" class="demo" style="background-color: #222222">
             <wh-home>
             </wh-home>
         </div>

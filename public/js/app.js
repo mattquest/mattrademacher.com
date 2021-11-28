@@ -2289,10 +2289,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -21229,7 +21225,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-list-item-subtitle", [
                         _vm._v(
-                          "\n            Single page applicatin framework built on Laravel, Vuejs & Vuetify.\n          "
+                          "\n            Single page application framework built on Laravel, Vuejs & Vuetify.\n          "
                         )
                       ]),
                       _vm._v(" "),
@@ -21531,7 +21527,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { staticStyle: { background: "#222" }, attrs: { id: "vApp" } },
+    { staticStyle: { background: "none" }, attrs: { id: "vApp" } },
     [
       _c(
         "v-container",
@@ -21562,7 +21558,7 @@ var render = function() {
                           attrs: { justify: "center" }
                         },
                         [
-                          _vm._v("\n                        MATT"),
+                          _vm._v("\n            MATT"),
                           _c("span", { staticClass: "font-weight-light" }, [
                             _vm._v("RADEMACHER")
                           ])
@@ -21712,7 +21708,22 @@ var render = function() {
         },
         [
           _c("v-flex", { staticClass: "text-center font-weight-bold" }, [
-            _vm._v("\n            " + _vm._s(_vm.snackBar.text) + "\n        ")
+            _vm._v("\n      " + _vm._s(_vm.snackBar.text) + "\n    ")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-footer",
+        {
+          staticClass: "font-weight-medium grey--text",
+          attrs: { absolute: "", dark: "" }
+        },
+        [
+          _c("v-col", { staticClass: "text-center", attrs: { cols: "12" } }, [
+            _vm._v("\n      " + _vm._s(new Date().getFullYear()) + " — "),
+            _c("strong", [_vm._v("Wheelmaker")])
           ])
         ],
         1
